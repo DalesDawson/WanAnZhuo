@@ -1,0 +1,40 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="login-icon">
+    <image class="login-img" src="../images/logo.jpg"></image>
+  </view>
+  <view class="login-from">
+    <form bindsubmit="formSubmit" class='login-from'>
+      <view class="myno">
+        <!-- 账号 -->
+        <view class="weui-cell weui-cell_input">
+          <image class="nameImage" src="../images/iocn_name.png"></image>
+          <!-- <view class="weui-cell__hd">
+              <view class="weui-label">账号</view>
+          </view> -->
+          <view class="weui-cell__bd">
+            <input placeholder-class="phcolor" class="weui-input" name="user" bindinput="userinput" value='{{user}}' placeholder="请输入账号" />
+          </view>
+        </view>
+      </view>
+      <view class="mypwd">
+        <!-- 密码 -->
+        <view class="weui-cell weui-cell_input">
+          <image class="passwordImage" src="../images/icon_password.png"></image>
+          <!-- <view class="weui-cell__hd">
+              <view class="weui-label">密码</view>
+          </view> -->
+          <view class="weui-cell__bd">
+            <input placeholder-class="phcolor" class="weui-input" type="password" name="pwd" bindinput="pwdinput" placeholder="请输入密码" value='{{pwd}}' />
+          </view>
+        </view>
+      </view>
+
+      <!--按钮-->
+      <view class="loginBtnView">
+        <button class="loginBtn" size="{{primarySize}}" form-type='submit' disabled='{{disabled}}'>注册</button>
+      </view>
+    </form>
+
+  </view>
+</view>

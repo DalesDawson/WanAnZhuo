@@ -1,0 +1,32 @@
+<scroll-view>
+  <view class="swiper-container">
+    <swiper autoplay="auto" interval="3000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+      <block wx:for="{{BannerData}}" wx:key="unique">
+        <swiper-item data-id="{{item.id}}" data-url="{{item.url}}">
+          <image src="{{item.imagePath}}" class="img" bindtap='swipclick' data-data="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{BannerData}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+  <view style="padding-top:10rpx"></view>
+  <view>
+    <block wx:for="{{articles}}" wx:key='sss'>
+      <view class='card' bindtap='articleClick' data-data="{{item}}">
+        <view class='article-view'>
+          <text class='article-author'>{{item.author}}</text>
+          <text class='article-niceDate'>{{item.niceDate}}</text>
+        </view>
+        <view class='article-title'>{{item.title}}</view>
+        <view class='article-view'>
+          <text class='article-ChapterName'>{{item.superChapterName}}/{{item.chapterName}}</text>
+          <image class='article-collect-img' src="../images/collect_normal.png"></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>

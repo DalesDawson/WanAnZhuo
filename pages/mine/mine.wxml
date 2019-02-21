@@ -1,0 +1,24 @@
+<!--pages/mine/mine.wxml-->
+<view class='view-bg'>
+  <image class='avatar' src="../images/head.jpg" bindtap='toLogin'></image>
+  <view class='username'>
+    {{username}}
+  </view>
+</view>
+<view class='list'>
+  <view class='usercenter' bindtap='mycollect'>
+    <view class='text_f_w_16'>我的收藏</view>
+    <image class='right' src='../images/icon_right.png'></image>
+  </view>
+  <view class='usercenter' bindtap='about'>
+    <view class='text_f_w_16'>TODO工具</view>
+    <image class='right' src='../images/icon_right.png'></image>
+  </view>
+  <view class='usercenter' bindtap='about'>
+    <view class='text_f_w_16'>关于我们</view>
+    <image class='right' src='../images/icon_right.png'></image>
+  </view>
+</view>
+<view class="loginBtnView">
+  <button class="loginBtn" form-type='submit'>退出登录</button>
+</view>

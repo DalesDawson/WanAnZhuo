@@ -1,0 +1,110 @@
+/* pages/login/login.wxss */
+
+page {
+  height: 100%;
+  background-size: 100%;
+  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545122585511&di=5ebc885297d5c6f84fca7bda99cb9e84&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01b2295568a994000001271604da4f.jpg%40900w_1l_2o_100sh.jpg');
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: #f2f2f2;     */
+}
+
+/*登录图片*/
+
+.login-icon {
+  flex: none;
+  margin: 0 auto;
+  margin-top: 200rpx;
+}
+
+.login-img {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 110rpx;
+  opacity: 0.6;
+}
+
+.form-container {
+  flex-direction: row;
+}
+
+/*表单内容*/
+
+.login-from {
+  margin-top: 90px;
+  flex: auto;
+  height: 100%;
+  width: 100%;
+}
+
+/* 输入框 */
+
+.myno {
+  width: 90%;
+  display: flex; /*设置显示样式**/
+  align-items: center; /**子view垂直居中*/
+  vertical-align: center; /**垂直居中*/
+  flex-direction: row;
+  height: 80rpx;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 50rpx;
+}
+
+.mypwd {
+  width: 90%;
+  display: flex; /*设置显示样式**/
+  align-items: center; /**子view垂直居中*/
+  vertical-align: center; /**垂直居中*/
+  flex-direction: row;
+  height: 80rpx;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 50rpx;
+  margin-top: 30rpx;
+}
+
+/*按钮*/
+
+.loginBtnView {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.loginBtn {
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 35px;
+  color: #fff;
+  background-color: #7e8ef0;
+  border: 0.1rpx solid #ccc;
+  border-radius: 40rpx;
+}
+
+.nameImage, .passwordImage {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+}
+
+.register-text {
+  color: cornflowerblue;
+  font-size: 15px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phcolor {
+  color: white;
+  font-size: 0.8em;
+}

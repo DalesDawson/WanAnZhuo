@@ -1,0 +1,109 @@
+/* pages/project/project.wxss */
+.icon-arrow-down {
+  width: 40rpx;
+  margin-left: 10rpx;
+  flex: none;
+  height: 38rpx;
+}
+
+.picker-view-title {
+  background-color: gainsboro;
+  display: flex; /*设置显示样式**/
+  align-items: center; /**子view垂直居中*/
+  vertical-align: center; /**垂直居中*/
+  justify-content: center; /**内容居中*/
+  flex-direction: row;
+}
+.card {
+  border: 2px solid #fff;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 2px #ccc;
+  margin: 8px;
+  position: relative;
+  display: flex
+}
+
+.article-author {
+  color: gray;
+  font-size: 0.8rem;
+  padding-left: 10rpx;
+}
+
+.article-title {
+  color: black;
+  font-size: 0.9rem;
+  margin-top: 15rpx;
+  margin-left: 5rpx;
+}
+
+.article-niceDate {
+  color: gray;
+  padding-right: 10rpx;
+  font-size: 0.8rem;
+}
+
+.article-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10rpx;
+}
+
+.article-ChapterName {
+  color: #1296db;
+  font-size: 0.8rem;
+  margin-top: 30rpx;
+  margin-left: 5rpx;
+}
+
+.article-collect-img {
+  width: 40rpx;
+  margin-right: 10rpx;
+  margin-top: 30rpx;
+  flex: none;
+  height: 38rpx;
+}
+
+.image-info{
+  width: 160rpx;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  height: 100%;
+}
+
+.image-icon{
+  width: 35rpx ;
+  height: 35rpx;
+}
+
+.project-info{
+  width: 480rpx;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgba(37, 32, 32, 0.801);
+}
+
+.text-title{
+  font-size: 16px;
+  margin-left: 20rpx;
+}
+
+.text-info{
+  margin-top: 30rpx;
+  height: 140rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottom-info{
+  margin-top: 30rpx;
+}
+
+.text-auther{
+  margin-left: 40rpx;
+}

@@ -1,0 +1,58 @@
+<!--pages/treedetails/treedetails.wxml-->
+<view>
+  <view class="section">
+    <picker moder="selector" bindchange="bindPickerChange" value="{{index}}" range="{{treeData}}" range-key="name">
+      <view class="picker">
+        <view class='picker-view-title'>{{treeData[index].name}}
+          <image class='icon-arrow-down' src="../images/icon_down.png"></image>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <!-- <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view wx:for="{{treeData}}" class="tab-item {{currentTab==index? 'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item.name}}-->
+  <!-- </view> -->
+  <!-- <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">健康</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">情感</view>
+    <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">职场</view>
+    <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">育儿</view>
+    <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">纠纷</view>
+    <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">青葱</view>
+    <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">全部</view>
+    <view class="tab-item {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">其他</view> -->
+  <!-- </scroll-view> -->
+  <!-- <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+  <swiper-item wx:for="{{treeData}}" wx-key='ss'>
+    <scroll-view scroll-y="true" class="scoll-h">
+      <block wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="*this">
+        <view class="item-ans">
+          <view class="avatar">
+            <image class="img" src="http://ookzqad11.bkt.clouddn.com/avatar.png"></image>
+          </view>
+          <view class="expertInfo">
+            <view class="name">欢颜</view>
+            <view class="tag">知名情感博主</view>
+            <view class="answerHistory">134个回答，2234人听过 </view>
+          </view>
+          <navigator url="/pages/askExpert/expertDetail" class="askBtn">问TA</navigator>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper> -->
+<view>
+    <block wx:for="{{articles}}" wx:key='sss'>
+      <view class='card' bindtap='articleClick' data-data="{{item}}">
+        <view class='article-view'>
+          <text class='article-author'>{{item.author}}</text>
+          <text class='article-niceDate'>{{item.niceDate}}</text>
+        </view>
+        <view class='article-title'>{{item.title}}</view>
+        <view class='article-view'>
+          <text class='article-ChapterName'>{{item.superChapterName}}/{{item.chapterName}}</text>
+          <image class='article-collect-img' src="../images/collect_normal.png"></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

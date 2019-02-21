@@ -1,0 +1,12 @@
+<!--pages/system/system.wxml-->
+<view>
+  <block wx:for="{{treeData}}" wx:key='sss'>
+    <view class='card' bindtap='treeClick' data-data="{{item}}">
+      <view class='tree-title'>{{item.name}}</view>
+      <!-- <image class='right-img' src="../images/icon_right.png"></image> -->
+      <view class='tree-view' wx:for="{{item.children}}" wx:key='www'>
+        <text class='tree-child-name'>{{item.name}}</text>
+      </view>
+    </view>
+  </block>
+</view>
