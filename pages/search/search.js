@@ -27,7 +27,7 @@ Page({
   getPagerData: function() {
     wx.showNavigationBarLoading()
     wx.request({
-      url: "http://www.wanandroid.com/article/query/" + this.data.pageNum + "/json",
+      url: "https://www.wanandroid.com/article/query/" + this.data.pageNum + "/json",
       method: 'POST',
       data: {
         k: app.globalData.key
@@ -94,9 +94,19 @@ Page({
   detail: function (event) {
     that = this; //不要漏了这句，很重要
     app.globalData.webUrl = event.currentTarget.id
-    wx.navigateTo({
-      url: '../web/web'
-    });
+    // wx.navigateTo({
+    //   url: '../web/web'
+    // });
+    wx.setClipboardData({
+      data: event.currentTarget.id,
+      success(res) {
+        wx.getClipboardData({
+          success(res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -124,16 +124,26 @@ Page({
     console.log(e.currentTarget.dataset)
     app.globalData.webUrl = e.currentTarget.dataset.data.link
     // app.globalData.fromWhere = 'homearticles'
-    wx.navigateTo({
-      url: '../web/web'
-    });
+    // wx.navigateTo({
+    //   url: '../web/web'
+    // });
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.data.link,
+      success(res) {
+        wx.getClipboardData({
+          success(res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
   },
   // footerTap: app.footerTap
   getArticles() {
     var that = this
     wx.request({
       // url: app.globalData.HomearticlesUrl,
-      url: "http://www.wanandroid.com/article/list/" + this.data.pageNum + "/json",
+      url: "https://www.wanandroid.com/article/list/" + this.data.pageNum + "/json",
       data: {
         cid: this.data.cid
       },
