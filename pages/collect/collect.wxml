@@ -1,0 +1,17 @@
+<!--pages/collect/collect.wxml-->
+<view>
+		<block wx:for="{{collection}}" wx:key='index'>
+			<view class='card' bindtap='itemClick' data-data="{{item}}">
+				<view class='article-view'>
+					<text class='article-author'>{{item.author}}</text>
+					<text class='article-niceDate'>{{item.niceDate}}</text>
+				</view>
+				<view class='article-title'>{{item.title}}</view>
+				<view class='article-view'>
+          <text class='article-ChapterName'>{{item.chapterName}}</text>
+          <image wx:if="{{item.collect}}" class='article-collect-img' src="../images/collect_normal.png" data-collect="{{item.collect}}" data-data="{{item}}" data-id="{{item.id}}" data-index='{{index}}' catchtap='likeClick'></image>
+					<image wx:if="{{!item.collect}}" class='article-collect-img' src="../images/collect_select.png" data-collect="{{item.collect}}" data-data="{{item}}" data-id="{{item.id}}" data-index='{{index}}' catchtap='likeClick'></image>
+				</view>
+			</view>
+		</block>
+	</view>

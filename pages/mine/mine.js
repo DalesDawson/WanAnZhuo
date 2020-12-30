@@ -1,11 +1,12 @@
 // pages/mine/mine.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username:'点击头像登录'
+    username: '点击头像登录'
   },
 
   /**
@@ -14,10 +15,51 @@ Page({
   onLoad: function (options) {
 
   },
-  toLogin:function(e){
+  toLogin: function (e) {
     wx.navigateTo({
       url: '../login/login'
     });
+  },
+  about: function (e) {
+    app.globalData.webUrl = 'https://github.com/DalesDawson/WanAnZhuo'
+    wx.navigateTo({
+      url: '../web/web'
+    });
+  },
+  mycollect: function (e) {
+    let that = this
+    let sessionid = wx.getStorageSync('sessionid')
+    if (sessionid == null || sessionid == undefined || sessionid == '') {
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    } else {
+      wx.navigateTo({
+        url: '../collect/collect',
+      })
+    }
+  },
+  loginout: function (e) {
+    wx.request({
+      url: 'https://www.wanandroid.com/user/logout/json',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.errorCode == 0) {
+          wx.removeStorageSync('sessionid')
+          wx.removeStorageSync('username')
+          wx.showToast({
+            title: '成功退出登录',
+            icon: 'success',
+            duration: 2000
+          })
+        } else {
+          console.log(res.data.errorMsg);
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

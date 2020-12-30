@@ -10,7 +10,7 @@
     <view class='text_f_w_16'>我的收藏</view>
     <image class='right' src='../images/icon_right.png'></image>
   </view>
-  <view class='usercenter' bindtap='about'>
+  <view class='usercenter' bindtap='todo'>
     <view class='text_f_w_16'>TODO工具</view>
     <image class='right' src='../images/icon_right.png'></image>
   </view>

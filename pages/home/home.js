@@ -1,3 +1,5 @@
+const { default: netutils } = require("../../utils/netutils");
+
 // pages/home/home.js
 var app = getApp();
 Page({
@@ -9,7 +11,8 @@ Page({
     BannerData: [],
     swiperCurrent: 0,
     articles: [],
-    pageNum: 0
+    pageNum: 0,
+    collectPic:'../images/collect_normal.png'
   },
 
   /**
@@ -121,7 +124,65 @@ Page({
       }
     })
   },
-
+  /**
+   * 收藏心点击事件
+   * @param {} e 
+   */
+  collect: function (e) {
+    let that = this
+    let sessionid = wx.getStorageSync('sessionid')
+    if (sessionid == null || sessionid == undefined || sessionid == '') {
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }else{
+      let collect = e.currentTarget.dataset.collect
+      let id = e.currentTarget.dataset.id
+      let index = e.currentTarget.dataset.index
+      let collectString = ''
+      if (!collect){
+        collectString = 'collect'
+      }else{
+        collectString = 'uncollect_originId'
+      }
+      let header = {
+        cookie: wx.getStorageSync('sessionid')
+      }
+      netutils.postCollectUrl(collectString, id, header).then(function (res) {
+        console.log(res)
+        if(res.data.errorCode == -1001){
+          wx.showToast({
+            title: res.data.errorMsg,
+            icon: 'none',
+            duration: 2000
+          })
+        }else{
+          if (!collect) {
+            that.data.articles[index].collect = true
+            wx.showToast({
+              title: '收藏成功！',
+              icon: 'none',
+              duration: 2000
+            })
+          } else {
+            that.data.articles[index].collect = false
+            wx.showToast({
+              title: '取消收藏成功！',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+          that.setData({
+            articles: that.data.articles
+          })
+        }
+      }, function (error) {
+        console.log(error)
+      }).catch(function () {
+        console.error("get location failed")
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -157,9 +218,9 @@ Page({
     var that = this;
     wx.showNavigationBarLoading();
     that.setData({
-      pageNum: 0,
-      isFirstRequest: true
-    }),
+        pageNum: 0,
+        isFirstRequest: true
+      }),
       that.loadData()
 
 
@@ -173,11 +234,10 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
     })
-
     that.setData({
-      pageNum: that.data.pageNum + 1,
-      isFirstRequest: false
-    }),
+        pageNum: that.data.pageNum + 1,
+        isFirstRequest: false
+      }),
       that.loadData()
 
   },
